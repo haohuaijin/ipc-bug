@@ -2,16 +2,15 @@ use std::sync::Arc;
 
 use arrow::array::{ArrayRef, RecordBatch, StringArray};
 use arrow_schema::{DataType, Field, Schema};
-use std::io::Cursor;
 
 use arrow::ipc::{
     writer::{FileWriter, IpcWriteOptions},
     CompressionType,
 };
+use std::io::Cursor;
 
-#[tokio::main]
-async fn main() {
-    let batch = generate_record_batch(100, 100);
+fn main() {
+    let batch = generate_record_batch(1000, 100);
     println!(
         "num_rows: {}, original batch size: {:?}",
         batch.num_rows(),

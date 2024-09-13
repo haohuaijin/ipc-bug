@@ -8,4 +8,6 @@ edition = "2021"
 [dependencies]
 arrow = { version = "52.2.0", features = ["ipc_compression", "prettyprint"] }
 arrow-schema = { version = "52.2.0", features = ["serde"] }
-tokio = { version ="1", features = ["full"]}
+
+[profile.release]
+debug = true
